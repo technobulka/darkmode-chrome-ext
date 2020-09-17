@@ -1,4 +1,7 @@
-html,
+html {
+  filter: invert(0.9) hue-rotate(180deg);
+}
+
 img,
 figure,
 video,
@@ -6,5 +9,10 @@ iframe,
 a[style*="background-image"],
 span[style*="background-image"],
 div[style*="background-image"] {
-  filter: invert(0.9) hue-rotate(180deg);
+  filter: invert(1) hue-rotate(180deg);
+}
+
+* {
+  box-shadow: none;
+  text-shadow: none;
 }
