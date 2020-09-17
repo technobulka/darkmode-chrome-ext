@@ -1,0 +1,10 @@
+html,
+img,
+figure,
+video,
+iframe,
+a[style*="background-image"],
+span[style*="background-image"],
+div[style*="background-image"] {
+  filter: invert(0.9) hue-rotate(162deg);
+}

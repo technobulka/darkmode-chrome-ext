@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Turn on dark mode</title>
+    <style>
+    body {
+      display: flex;
+      margin: 0;
+    }
+    .switcher {
+      position: relative;
+      width: 80px;
+      height: 30px;
+      overflow: hidden;
+    }
+    .switcher input {
+      appearance: none;
+      position: relative;
+      width: 80px;
+      height: 30px;
+      background-color: #1A1A1A;
+      outline: none;
+      font-family: "Oswald", sans-serif;
+      transition: background-color 0s 0.5s;
+      margin: 0;
+    }
+    .switcher input:before,
+    .switcher input:after {
+      z-index: 2;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #FFFFFF;
+    }
+    .switcher input:before {
+      content: "OFF";
+      color: #1A1A1A;
+      left: 15px;
+    }
+    .switcher input:after {
+      content: "ON";
+      color: #FFFFFF;
+      right: 15px;
+    }
+    .switcher label {
+      z-index: 1;
+      position: absolute;
+      top: 0px;
+      width: 80px;
+      height: 30px;
+    }
+    .switcher input:checked {
+      background-color: #1A1A1A;
+    }
+    .switcher input:checked + label {
+      background: #1A1A1A;
+      animation: turn-off 0.5s ease-out;
+    }
+    @keyframes turn-on {
+      0% {
+        left: 100%;
+      }
+      100% {
+        left: 0%;
+      }
+    }
+    .switcher input:not(:checked) {
+      background-color: #FFFFFF;
+    }
+    .switcher input:not(:checked) + label {
+      background-color: #FFFFFF;
+      animation: turn-on 0.5s ease-out;
+    }
+    @keyframes turn-off {
+      0% {
+        right: 100%;
+      }
+      100% {
+        right: 0%;
+      }
+    }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <span class="switcher">
+      <input type="checkbox" id="switcher">
+      <label for="switcher"></label>
+   </span>
+  </body>
+</html>
