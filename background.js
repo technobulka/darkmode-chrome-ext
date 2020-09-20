@@ -18,17 +18,21 @@ chrome.runtime.onInstalled.addListener(() =>
 	}))
 );
 
-chrome.tabs.onUpdated.addListener((id, changeInfo) => {
+let injected = false;
+
+chrome.tabs.onUpdated.addListener((id, changeInfo, tab) => {
   if (changeInfo.status == 'loading') {
-    chrome.tabs.query({active: true}, tabs => {
-      var tab = tabs[0];
-      var url = new URL(tab.url);
-  
-      getSavedMode(url.hostname, (savedMode) => {
-        if (savedMode) {
-          chrome.tabs.insertCSS(id, { file: 'invert.css', runAt: 'document_start' });
-        }
-      });
-    })
+    let url = new URL(tab.url);
+
+    getSavedMode(url.hostname, (savedMode) => {
+      if (savedMode && !injected) {
+        chrome.tabs.insertCSS(id, { file: 'invert.css', runAt: 'document_start' });
+        injected = true;
+      }
+    });
+  }
+
+  if (changeInfo.status == 'complete') {
+    injected = false;
   }
 });
