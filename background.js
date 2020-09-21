@@ -26,8 +26,7 @@ chrome.tabs.onUpdated.addListener((id, changeInfo, tab) => {
 
     getSavedMode(url.hostname, (savedMode) => {
       if (savedMode && !injected) {
-        chrome.tabs.insertCSS(id, { file: 'invert.css', runAt: 'document_start' });
-        injected = true;
+        chrome.tabs.insertCSS(id, { file: 'invert.css', runAt: 'document_start' }, () => { injected = true });
       }
     });
   }
