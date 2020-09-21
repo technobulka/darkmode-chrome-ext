@@ -3,7 +3,7 @@
   "short_name": "dark_mode",
   "description": "Turn dark_mode on any site",
   "author": "Stanislav Kondratiev",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "homepage_url": "https://github.com/technobulka/darkmode-chrome-ext",
   "icons": { "48": "icon48.png", "128": "icon128.png" },
   "permissions": [
