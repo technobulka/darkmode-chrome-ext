@@ -13,6 +13,6 @@ div[style*="background-image"] {
 }
 
 * {
-  box-shadow: none;
-  text-shadow: none;
+  box-shadow: unset !important;
+  text-shadow: unset !important;
 }
