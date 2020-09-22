@@ -2,12 +2,19 @@ html {
   filter: invert(0.9) hue-rotate(180deg);
 }
 
+body {
+  background: #fff !important;
+}
+
 img,
 video,
 iframe:not(:fullscreen),
-a[style*="background-image"],
-span[style*="background-image"],
-div[style*="background-image"] {
+a[style*="background-image: url("],
+span[style*="background-image: url("],
+div[style*="background-image: url("],
+a[style*="background-image:url("],
+span[style*="background-image:url("],
+div[style*="background-image:url("] {
   filter: invert(1) hue-rotate(180deg);
 }
 
