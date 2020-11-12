@@ -18,7 +18,7 @@ div[style*="background-image:url("] {
   filter: invert(1) hue-rotate(180deg);
 }
 
-* {
+*:not([class*="selected"]):not([class*="active"]) {
   box-shadow: unset !important;
   text-shadow: unset !important;
 }
